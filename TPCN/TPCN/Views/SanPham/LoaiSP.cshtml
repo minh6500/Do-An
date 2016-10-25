@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TPCN.Models.LOAISP>
+@{
+    ViewBag.Title = "LoaiSP";
+    Layout = null;
+}
+
+
+    @foreach (var item in Model.GroupBy(n => n.CHUYENMUC))
+    {
+        if (item.Key != null)
+        {
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.Key.TENCM<span class="caret"></span></a>
+                <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+                    <div class="w3ls_vegetables">
+
+                        <ul>
+                            @foreach (var item2 in Model)
+                            {
+                                if (item2.CHUYENMUC.MACM == item.Key.MACM)
+                                {
+                                <li><a href="@Url.Action("CTLoai","SanPham",new { loai = item2.MALOAI })">@item2.TENLOAI</a></li>
+                                }
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        }
+    }
+
