@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\ASUS\Desktop\New folder\Do-An-Chuyen-Nganh\TPCN\TPCN\Models\TPCN.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Son\Desktop\Do an1\Do-An\TPCN\TPCN\Models\TPCN.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

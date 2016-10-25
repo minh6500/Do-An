@@ -51,7 +51,7 @@ namespace TPCN.Controllers
         {
             var taikhoan = collection["Username"];
             var matkhau = collection["Password"];
-            KHACHHANG kh = db.KHACHHANGs.SingleOrDefault(n => n.USERNAME == taikhoan && n.PASS == matkhau);
+            KHACHHANG kh = db.KHACHHANG.SingleOrDefault(n => n.USERNAME == taikhoan && n.PASS == matkhau);
             if (kh != null)
             {
                 ViewBag.ThongBao = "Đăng nhập thành công!";

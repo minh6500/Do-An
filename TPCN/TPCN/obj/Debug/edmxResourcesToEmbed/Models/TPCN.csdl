@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TPCNModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="CHUYENMUC">
-    <Key>
-      <PropertyRef Name="MACM" />
-    </Key>
-    <Property Name="MACM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TENCM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="LOAISPs" Relationship="Self.FK__LOAISP__MACM__1273C1CD" FromRole="CHUYENMUC" ToRole="LOAISP" />
-  </EntityType>
   <EntityType Name="CTDDH">
     <Key>
       <PropertyRef Name="MASP" />
@@ -19,6 +11,14 @@
     <Property Name="SOLUONG" Type="Int32" />
     <NavigationProperty Name="DONDATHANG" Relationship="Self.FK__CTDDH__MAD__1DE57479" FromRole="CTDDH" ToRole="DONDATHANG" />
     <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CTDDH__MASP__1CF15040" FromRole="CTDDH" ToRole="SANPHAM" />
+  </EntityType>
+  <EntityType Name="CHUYENMUC">
+    <Key>
+      <PropertyRef Name="MACM" />
+    </Key>
+    <Property Name="MACM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENCM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="LOAISP" Relationship="Self.FK__LOAISP__MACM__1273C1CD" FromRole="CHUYENMUC" ToRole="LOAISP" />
   </EntityType>
   <EntityType Name="DONDATHANG">
     <Key>
@@ -33,7 +33,7 @@
     <Property Name="TINHTRANGTHANHTOAN" Type="Boolean" />
     <Property Name="TINHTRANGGIAOHANG" Type="Boolean" />
     <Property Name="MAKH" Type="Int32" />
-    <NavigationProperty Name="CTDDHs" Relationship="Self.FK__CTDDH__MAD__1DE57479" FromRole="DONDATHANG" ToRole="CTDDH" />
+    <NavigationProperty Name="CTDDH" Relationship="Self.FK__CTDDH__MAD__1DE57479" FromRole="DONDATHANG" ToRole="CTDDH" />
     <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__DONDATHANG__MAKH__1A14E395" FromRole="DONDATHANG" ToRole="KHACHHANG" />
   </EntityType>
   <EntityType Name="KHACHHANG">
@@ -47,7 +47,7 @@
     <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="USERNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PASS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="DONDATHANGs" Relationship="Self.FK__DONDATHANG__MAKH__1A14E395" FromRole="KHACHHANG" ToRole="DONDATHANG" />
+    <NavigationProperty Name="DONDATHANG" Relationship="Self.FK__DONDATHANG__MAKH__1A14E395" FromRole="KHACHHANG" ToRole="DONDATHANG" />
   </EntityType>
   <EntityType Name="LOAISP">
     <Key>
@@ -57,7 +57,7 @@
     <Property Name="TENLOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="MACM" Type="Int32" />
     <NavigationProperty Name="CHUYENMUC" Relationship="Self.FK__LOAISP__MACM__1273C1CD" FromRole="LOAISP" ToRole="CHUYENMUC" />
-    <NavigationProperty Name="SANPHAMs" Relationship="Self.FK__SANPHAM__MALOAI__15502E78" FromRole="LOAISP" ToRole="SANPHAM" />
+    <NavigationProperty Name="SANPHAM" Relationship="Self.FK__SANPHAM__MALOAI__15502E78" FromRole="LOAISP" ToRole="SANPHAM" />
   </EntityType>
   <EntityType Name="SANPHAM">
     <Key>
@@ -71,21 +71,9 @@
     <Property Name="DONGIA" Type="Int32" Nullable="false" />
     <Property Name="KHUYENMAI" Type="Int32" />
     <Property Name="MALOAI" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="CTDDHs" Relationship="Self.FK__CTDDH__MASP__1CF15040" FromRole="SANPHAM" ToRole="CTDDH" />
+    <NavigationProperty Name="CTDDH" Relationship="Self.FK__CTDDH__MASP__1CF15040" FromRole="SANPHAM" ToRole="CTDDH" />
     <NavigationProperty Name="LOAISP" Relationship="Self.FK__SANPHAM__MALOAI__15502E78" FromRole="SANPHAM" ToRole="LOAISP" />
   </EntityType>
-  <Association Name="FK__LOAISP__MACM__1273C1CD">
-    <End Role="CHUYENMUC" Type="Self.CHUYENMUC" Multiplicity="0..1" />
-    <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CHUYENMUC">
-        <PropertyRef Name="MACM" />
-      </Principal>
-      <Dependent Role="LOAISP">
-        <PropertyRef Name="MACM" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__CTDDH__MAD__1DE57479">
     <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="1" />
     <End Role="CTDDH" Type="Self.CTDDH" Multiplicity="*" />
@@ -107,6 +95,18 @@
       </Principal>
       <Dependent Role="CTDDH">
         <PropertyRef Name="MASP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LOAISP__MACM__1273C1CD">
+    <End Role="CHUYENMUC" Type="Self.CHUYENMUC" Multiplicity="0..1" />
+    <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUYENMUC">
+        <PropertyRef Name="MACM" />
+      </Principal>
+      <Dependent Role="LOAISP">
+        <PropertyRef Name="MACM" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -135,31 +135,31 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="TPCNEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="CHUYENMUCs" EntityType="Self.CHUYENMUC" />
-    <EntitySet Name="CTDDHs" EntityType="Self.CTDDH" />
-    <EntitySet Name="DONDATHANGs" EntityType="Self.DONDATHANG" />
-    <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
-    <EntitySet Name="LOAISPs" EntityType="Self.LOAISP" />
-    <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
-    <AssociationSet Name="FK__LOAISP__MACM__1273C1CD" Association="Self.FK__LOAISP__MACM__1273C1CD">
-      <End Role="CHUYENMUC" EntitySet="CHUYENMUCs" />
-      <End Role="LOAISP" EntitySet="LOAISPs" />
-    </AssociationSet>
+    <EntitySet Name="CTDDH" EntityType="Self.CTDDH" />
+    <EntitySet Name="CHUYENMUC" EntityType="Self.CHUYENMUC" />
+    <EntitySet Name="DONDATHANG" EntityType="Self.DONDATHANG" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" />
+    <EntitySet Name="LOAISP" EntityType="Self.LOAISP" />
+    <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" />
     <AssociationSet Name="FK__CTDDH__MAD__1DE57479" Association="Self.FK__CTDDH__MAD__1DE57479">
-      <End Role="DONDATHANG" EntitySet="DONDATHANGs" />
-      <End Role="CTDDH" EntitySet="CTDDHs" />
+      <End Role="DONDATHANG" EntitySet="DONDATHANG" />
+      <End Role="CTDDH" EntitySet="CTDDH" />
     </AssociationSet>
     <AssociationSet Name="FK__CTDDH__MASP__1CF15040" Association="Self.FK__CTDDH__MASP__1CF15040">
-      <End Role="SANPHAM" EntitySet="SANPHAMs" />
-      <End Role="CTDDH" EntitySet="CTDDHs" />
+      <End Role="SANPHAM" EntitySet="SANPHAM" />
+      <End Role="CTDDH" EntitySet="CTDDH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LOAISP__MACM__1273C1CD" Association="Self.FK__LOAISP__MACM__1273C1CD">
+      <End Role="CHUYENMUC" EntitySet="CHUYENMUC" />
+      <End Role="LOAISP" EntitySet="LOAISP" />
     </AssociationSet>
     <AssociationSet Name="FK__DONDATHANG__MAKH__1A14E395" Association="Self.FK__DONDATHANG__MAKH__1A14E395">
-      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
-      <End Role="DONDATHANG" EntitySet="DONDATHANGs" />
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DONDATHANG" EntitySet="DONDATHANG" />
     </AssociationSet>
     <AssociationSet Name="FK__SANPHAM__MALOAI__15502E78" Association="Self.FK__SANPHAM__MALOAI__15502E78">
-      <End Role="LOAISP" EntitySet="LOAISPs" />
-      <End Role="SANPHAM" EntitySet="SANPHAMs" />
+      <End Role="LOAISP" EntitySet="LOAISP" />
+      <End Role="SANPHAM" EntitySet="SANPHAM" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

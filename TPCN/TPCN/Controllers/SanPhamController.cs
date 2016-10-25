@@ -13,16 +13,16 @@ namespace TPCN.Controllers
         // GET: SanPham
         public ActionResult LoaiSP()
         {
-            return View(db.LOAISPs.ToList());
+            return View(db.LOAISP.ToList());
         }
         public ActionResult CTLoai(int loai)
         {
-            var l = db.SANPHAMs.Where(n => n.MALOAI == loai).ToList();
+            var l = db.SANPHAM.Where(n => n.MALOAI == loai).ToList();
             return View(l);
         }
         public ActionResult CTSanPham(int sanpham)
         {
-            var sp = db.SANPHAMs.Where(n=>n.MASP==sanpham).ToList();
+            var sp = db.SANPHAM.Where(n=>n.MASP==sanpham).ToList();
             return View(sp);
         }
     }

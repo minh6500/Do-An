@@ -71,10 +71,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </form>
         </div>
         <div class="product_list_header">
-            <form action="#" method="post" class="last">
+            <form action="@Url.Action("GioHang","GioHang")" method="post" class="last">
                 <fieldset>
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="display" value="1" />
                     <input type="submit" name="submit" value="View your cart" class="button" />
                 </fieldset>
             </form>
@@ -218,17 +216,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <h4>@String.Format("{0:0,0}",item.DONGIA)VNĐ</h4>
                             </div>
                             <div class="snipcart-details agileinfo_single_right_details">
-                                <form action="#" method="post">
+                                <form action="@Url.Action("ThemGioHang","GioHang",new {iMASP=item.MASP,@strURL=Request.Url.ToString()})" method="post">
                                     <fieldset>
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" />
-                                        <input type="hidden" name="business" value=" " />
-                                        <input type="hidden" name="item_name" value="pulao basmati rice" />
-                                        <input type="hidden" name="amount" value="21.00" />
-                                        <input type="hidden" name="discount_amount" value="1.00" />
-                                        <input type="hidden" name="currency_code" value="USD" />
-                                        <input type="hidden" name="return" value=" " />
-                                        <input type="hidden" name="cancel_return" value=" " />
+                                        @*<input type="hidden" name="cmd" value="_cart" />
+                <input type="hidden" name="add" value="1" />
+                <input type="hidden" name="business" value=" " />
+                <input type="hidden" name="item_name" value="pulao basmati rice" />
+                <input type="hidden" name="amount" value="21.00" />
+                <input type="hidden" name="discount_amount" value="1.00" />
+                <input type="hidden" name="currency_code" value="USD" />
+                <input type="hidden" name="return" value=" " />
+                <input type="hidden" name="cancel_return" value=" " />*@
                                         <input type="submit" name="submit" value="Add to cart" class="button" />
                                     </fieldset>
                                 </form>

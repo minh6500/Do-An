@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TPCNModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="CHUYENMUC">
-    <Key>
-      <PropertyRef Name="MACM" />
-    </Key>
-    <Property Name="MACM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TENCM" Type="nvarchar" MaxLength="100" Nullable="false" />
-  </EntityType>
   <EntityType Name="CTDDH">
     <Key>
       <PropertyRef Name="MASP" />
@@ -16,6 +9,13 @@
     <Property Name="MAD" Type="int" Nullable="false" />
     <Property Name="DONGIA" Type="int" />
     <Property Name="SOLUONG" Type="int" />
+  </EntityType>
+  <EntityType Name="CHUYENMUC">
+    <Key>
+      <PropertyRef Name="MACM" />
+    </Key>
+    <Property Name="MACM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENCM" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="DONDATHANG">
     <Key>
@@ -125,8 +125,8 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="TPCNModelStoreContainer">
-    <EntitySet Name="CHUYENMUC" EntityType="Self.CHUYENMUC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CTDDH" EntityType="Self.CTDDH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHUYENMUC" EntityType="Self.CHUYENMUC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DONDATHANG" EntityType="Self.DONDATHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LOAISP" EntityType="Self.LOAISP" Schema="dbo" store:Type="Tables" />

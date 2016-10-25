@@ -1,15 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TPCNModelStoreContainer" CdmEntityContainer="TPCNEntities">
-    <EntitySetMapping Name="CHUYENMUCs">
-      <EntityTypeMapping TypeName="TPCNModel.CHUYENMUC">
-        <MappingFragment StoreEntitySet="CHUYENMUC">
-          <ScalarProperty Name="MACM" ColumnName="MACM" />
-          <ScalarProperty Name="TENCM" ColumnName="TENCM" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CTDDHs">
+    <EntitySetMapping Name="CTDDH">
       <EntityTypeMapping TypeName="TPCNModel.CTDDH">
         <MappingFragment StoreEntitySet="CTDDH">
           <ScalarProperty Name="MASP" ColumnName="MASP" />
@@ -19,7 +11,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DONDATHANGs">
+    <EntitySetMapping Name="CHUYENMUC">
+      <EntityTypeMapping TypeName="TPCNModel.CHUYENMUC">
+        <MappingFragment StoreEntitySet="CHUYENMUC">
+          <ScalarProperty Name="MACM" ColumnName="MACM" />
+          <ScalarProperty Name="TENCM" ColumnName="TENCM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DONDATHANG">
       <EntityTypeMapping TypeName="TPCNModel.DONDATHANG">
         <MappingFragment StoreEntitySet="DONDATHANG">
           <ScalarProperty Name="MAD" ColumnName="MAD" />
@@ -34,7 +34,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="KHACHHANGs">
+    <EntitySetMapping Name="KHACHHANG">
       <EntityTypeMapping TypeName="TPCNModel.KHACHHANG">
         <MappingFragment StoreEntitySet="KHACHHANG">
           <ScalarProperty Name="MAKH" ColumnName="MAKH" />
@@ -47,7 +47,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LOAISPs">
+    <EntitySetMapping Name="LOAISP">
       <EntityTypeMapping TypeName="TPCNModel.LOAISP">
         <MappingFragment StoreEntitySet="LOAISP">
           <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
@@ -56,7 +56,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SANPHAMs">
+    <EntitySetMapping Name="SANPHAM">
       <EntityTypeMapping TypeName="TPCNModel.SANPHAM">
         <MappingFragment StoreEntitySet="SANPHAM">
           <ScalarProperty Name="MASP" ColumnName="MASP" />

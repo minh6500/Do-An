@@ -13,7 +13,7 @@ namespace TPCN.Controllers
         // GET: Home
         private List<SANPHAM> SanPhamMoi(int count)
         {
-            return db.SANPHAMs.OrderByDescending(a => a.NGAYCAPNHAT).Take(count).ToList();
+            return db.SANPHAM.OrderByDescending(a => a.NGAYCAPNHAT).Take(count).ToList();
         }
 
         public ActionResult Index()

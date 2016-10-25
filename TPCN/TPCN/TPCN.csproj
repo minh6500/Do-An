@@ -128,6 +128,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cssGioHang\main.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\flexslider.css" />
     <Content Include="css\font-awesome.css" />
@@ -304,6 +305,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
@@ -319,6 +321,7 @@
     <Compile Include="Models\DONDATHANG.cs">
       <DependentUpon>TPCN.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\KHACHHANG.cs">
       <DependentUpon>TPCN.tt</DependentUpon>
     </Compile>
@@ -365,6 +368,8 @@
     <Content Include="Views\SanPham\CTSanPham.cshtml" />
     <Content Include="Views\NguoiDung\DangKy.cshtml" />
     <Content Include="Views\NguoiDung\DangNhap.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <EntityDeploy Include="Models\TPCN.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TPCN.Designer.cs</LastGenOutput>
@@ -372,8 +377,7 @@
     <Content Include="Models\TPCN.edmx.diagram">
       <DependentUpon>TPCN.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
