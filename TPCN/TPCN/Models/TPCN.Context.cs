@@ -25,8 +25,8 @@ namespace TPCN.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CTDDH> CTDDH { get; set; }
         public virtual DbSet<CHUYENMUC> CHUYENMUC { get; set; }
+        public virtual DbSet<CTDDH> CTDDH { get; set; }
         public virtual DbSet<DONDATHANG> DONDATHANG { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANG { get; set; }
         public virtual DbSet<LOAISP> LOAISP { get; set; }
