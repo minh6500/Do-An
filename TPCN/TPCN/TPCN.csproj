@@ -431,6 +431,11 @@
     <Compile Include="Models\LOAISP.cs">
       <DependentUpon>TPCN.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Metadata\CHUYENMUC.Metadata.cs" />
+    <Compile Include="Models\Metadata\DONDATHANG.Metadata.cs" />
+    <Compile Include="Models\Metadata\KHACHHANG.Metadata.cs" />
+    <Compile Include="Models\Metadata\LOAISP.Metadata.cs" />
+    <Compile Include="Models\Metadata\SANPHAM.Metadata.cs" />
     <Compile Include="Models\SANPHAM.cs">
       <DependentUpon>TPCN.tt</DependentUpon>
     </Compile>
