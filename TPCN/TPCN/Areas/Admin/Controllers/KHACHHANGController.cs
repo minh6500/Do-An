@@ -17,7 +17,7 @@ namespace TPCN.Areas.Admin.Controllers
         // GET: Admin/KHACHHANG
         public ActionResult Index()
         {
-            return View(db.KHACHHANG.ToList());
+            return View(db.KHACHHANGs.ToList());
         }
 
         // GET: Admin/KHACHHANG/Details/5
@@ -27,7 +27,7 @@ namespace TPCN.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
+            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
             if (kHACHHANG == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace TPCN.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.KHACHHANG.Add(kHACHHANG);
+                db.KHACHHANGs.Add(kHACHHANG);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace TPCN.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
+            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
             if (kHACHHANG == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace TPCN.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
+            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
             if (kHACHHANG == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace TPCN.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
-            db.KHACHHANG.Remove(kHACHHANG);
+            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
+            db.KHACHHANGs.Remove(kHACHHANG);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

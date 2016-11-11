@@ -17,7 +17,7 @@ namespace TPCN.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SANPHAM()
         {
-            this.CTDDH = new HashSet<CTDDH>();
+            this.CTDDHs = new HashSet<CTDDH>();
         }
     
         public int MASP { get; set; }
@@ -27,10 +27,13 @@ namespace TPCN.Models
         public System.DateTime NGAYCAPNHAT { get; set; }
         public int DONGIA { get; set; }
         public Nullable<int> KHUYENMAI { get; set; }
+        public string THANHTOANTRUCTUYEN { get; set; }
+        public string URL { get; set; }
+        public string NOIDUNG { get; set; }
         public int MALOAI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTDDH> CTDDH { get; set; }
+        public virtual ICollection<CTDDH> CTDDHs { get; set; }
         public virtual LOAISP LOAISP { get; set; }
     }
 }

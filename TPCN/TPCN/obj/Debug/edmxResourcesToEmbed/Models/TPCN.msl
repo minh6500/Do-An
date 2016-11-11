@@ -1,15 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TPCNModelStoreContainer" CdmEntityContainer="TPCNEntities">
-    <EntitySetMapping Name="CHUYENMUC">
+    <EntitySetMapping Name="ADMINLOGINs">
+      <EntityTypeMapping TypeName="TPCNModel.ADMINLOGIN">
+        <MappingFragment StoreEntitySet="ADMINLOGIN">
+          <ScalarProperty Name="MAAD" ColumnName="MAAD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASS" ColumnName="PASS" />
+          <ScalarProperty Name="TENAD" ColumnName="TENAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHUYENMUCs">
       <EntityTypeMapping TypeName="TPCNModel.CHUYENMUC">
         <MappingFragment StoreEntitySet="CHUYENMUC">
           <ScalarProperty Name="MACM" ColumnName="MACM" />
           <ScalarProperty Name="TENCM" ColumnName="TENCM" />
+          <ScalarProperty Name="URLCM" ColumnName="URLCM" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CTDDH">
+    <EntitySetMapping Name="CTDDHs">
       <EntityTypeMapping TypeName="TPCNModel.CTDDH">
         <MappingFragment StoreEntitySet="CTDDH">
           <ScalarProperty Name="MASP" ColumnName="MASP" />
@@ -19,12 +30,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DONDATHANG">
+    <EntitySetMapping Name="DONDATHANGs">
       <EntityTypeMapping TypeName="TPCNModel.DONDATHANG">
         <MappingFragment StoreEntitySet="DONDATHANG">
           <ScalarProperty Name="MAD" ColumnName="MAD" />
           <ScalarProperty Name="NGAYDAT" ColumnName="NGAYDAT" />
-          <ScalarProperty Name="NGAYGIAO" ColumnName="NGAYGIAO" />
           <ScalarProperty Name="TENDAIDIEN" ColumnName="TENDAIDIEN" />
           <ScalarProperty Name="SDT" ColumnName="SDT" />
           <ScalarProperty Name="DIACHIGIAO" ColumnName="DIACHIGIAO" />
@@ -34,7 +44,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="KHACHHANG">
+    <EntitySetMapping Name="KHACHHANGs">
       <EntityTypeMapping TypeName="TPCNModel.KHACHHANG">
         <MappingFragment StoreEntitySet="KHACHHANG">
           <ScalarProperty Name="MAKH" ColumnName="MAKH" />
@@ -47,16 +57,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LOAISP">
+    <EntitySetMapping Name="LIENHEs">
+      <EntityTypeMapping TypeName="TPCNModel.LIENHE">
+        <MappingFragment StoreEntitySet="LIENHE">
+          <ScalarProperty Name="MALH" ColumnName="MALH" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="CHUDE" ColumnName="CHUDE" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAISPs">
       <EntityTypeMapping TypeName="TPCNModel.LOAISP">
         <MappingFragment StoreEntitySet="LOAISP">
           <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
           <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+          <ScalarProperty Name="URLLOAISP" ColumnName="URLLOAISP" />
           <ScalarProperty Name="MACM" ColumnName="MACM" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SANPHAM">
+    <EntitySetMapping Name="SANPHAMs">
       <EntityTypeMapping TypeName="TPCNModel.SANPHAM">
         <MappingFragment StoreEntitySet="SANPHAM">
           <ScalarProperty Name="MASP" ColumnName="MASP" />
@@ -66,6 +87,9 @@
           <ScalarProperty Name="NGAYCAPNHAT" ColumnName="NGAYCAPNHAT" />
           <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
           <ScalarProperty Name="KHUYENMAI" ColumnName="KHUYENMAI" />
+          <ScalarProperty Name="THANHTOANTRUCTUYEN" ColumnName="THANHTOANTRUCTUYEN" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
           <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
         </MappingFragment>
       </EntityTypeMapping>

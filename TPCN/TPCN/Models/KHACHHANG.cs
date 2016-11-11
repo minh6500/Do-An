@@ -17,7 +17,7 @@ namespace TPCN.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KHACHHANG()
         {
-            this.DONDATHANG = new HashSet<DONDATHANG>();
+            this.DONDATHANGs = new HashSet<DONDATHANG>();
         }
     
         public int MAKH { get; set; }
@@ -29,6 +29,6 @@ namespace TPCN.Models
         public string PASS { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DONDATHANG> DONDATHANG { get; set; }
+        public virtual ICollection<DONDATHANG> DONDATHANGs { get; set; }
     }
 }

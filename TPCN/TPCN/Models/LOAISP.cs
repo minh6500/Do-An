@@ -17,15 +17,16 @@ namespace TPCN.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LOAISP()
         {
-            this.SANPHAM = new HashSet<SANPHAM>();
+            this.SANPHAMs = new HashSet<SANPHAM>();
         }
     
         public int MALOAI { get; set; }
         public string TENLOAI { get; set; }
+        public string URLLOAISP { get; set; }
         public Nullable<int> MACM { get; set; }
     
         public virtual CHUYENMUC CHUYENMUC { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SANPHAM> SANPHAM { get; set; }
+        public virtual ICollection<SANPHAM> SANPHAMs { get; set; }
     }
 }

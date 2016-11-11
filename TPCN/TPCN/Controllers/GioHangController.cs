@@ -26,13 +26,12 @@ namespace TPCN.Controllers
         public ActionResult ThemGioHang(int iMASP, string strURL)
         {
             List<GioHang> lstGioHang = LayGioHang();
-            GioHang sanpham = lstGioHang.Find(n => n.iMaSP == iMASP);
+            GioHang sanpham = lstGioHang.Find(n => n.iMASP == iMASP);
             if (sanpham == null)
             {
                 sanpham = new GioHang(iMASP);
                 lstGioHang.Add(sanpham);
                 return Redirect(strURL);
-
             }
             else
             {
@@ -65,23 +64,19 @@ namespace TPCN.Controllers
 
         }
         public ActionResult GioHang()
-        {
-            
+        {         
             List<GioHang> lstGioHang = LayGioHang();
             if (lstGioHang.Count == 0)
             {
                 ViewBag.GioHang = "Giỏ Hàng Rỗng!!";
-                return View();
-
             }
-            ViewBag.TongSoLuong = TongSoLuong();
             ViewBag.TongTien = TongTien();
             return View(lstGioHang);
         }
         public ActionResult CapNhatGioHang(int iMASP,FormCollection f)
         {
             List<GioHang> lstGioHang = LayGioHang();
-            GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMaSP == iMASP);
+            GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMASP == iMASP);
             if(sanpham!=null)
             {
                 sanpham.iSOLUONG = int.Parse(f["txtSOLUONG"].ToString());
@@ -91,10 +86,10 @@ namespace TPCN.Controllers
         public ActionResult XoaGioHang(int iMASP)
         {
             List<GioHang> lstGioHang = LayGioHang();
-            GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMaSP == iMASP);
+            GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMASP == iMASP);
             if(sanpham!=null)
             {
-                lstGioHang.RemoveAll(n => n.iMaSP == iMASP);
+                lstGioHang.RemoveAll(n => n.iMASP == iMASP);
                 return RedirectToAction("GioHang");
             }
             if (lstGioHang.Count == 0)

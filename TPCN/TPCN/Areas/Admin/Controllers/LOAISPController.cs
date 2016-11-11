@@ -17,7 +17,7 @@ namespace TPCN.Areas.Admin.Controllers
         // GET: Admin/LOAISP
         public ActionResult Index()
         {
-            var lOAISPs = db.LOAISP.Include(l => l.CHUYENMUC);
+            var lOAISPs = db.LOAISPs.Include(l => l.CHUYENMUC);
             return View(lOAISPs.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace TPCN.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LOAISP lOAISP = db.LOAISP.Find(id);
+            LOAISP lOAISP = db.LOAISPs.Find(id);
             if (lOAISP == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace TPCN.Areas.Admin.Controllers
         // GET: Admin/LOAISP/Create
         public ActionResult Create()
         {
-            ViewBag.MACM = new SelectList(db.CHUYENMUC, "MACM", "TENCM");
+            ViewBag.MACM = new SelectList(db.CHUYENMUCs, "MACM", "TENCM");
             return View();
         }
 
@@ -52,12 +52,12 @@ namespace TPCN.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.LOAISP.Add(lOAISP);
+                db.LOAISPs.Add(lOAISP);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MACM = new SelectList(db.CHUYENMUC, "MACM", "TENCM", lOAISP.MACM);
+            ViewBag.MACM = new SelectList(db.CHUYENMUCs, "MACM", "TENCM", lOAISP.MACM);
             return View(lOAISP);
         }
 
@@ -68,12 +68,12 @@ namespace TPCN.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LOAISP lOAISP = db.LOAISP.Find(id);
+            LOAISP lOAISP = db.LOAISPs.Find(id);
             if (lOAISP == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MACM = new SelectList(db.CHUYENMUC, "MACM", "TENCM", lOAISP.MACM);
+            ViewBag.MACM = new SelectList(db.CHUYENMUCs, "MACM", "TENCM", lOAISP.MACM);
             return View(lOAISP);
         }
 
@@ -90,7 +90,7 @@ namespace TPCN.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MACM = new SelectList(db.CHUYENMUC, "MACM", "TENCM", lOAISP.MACM);
+            ViewBag.MACM = new SelectList(db.CHUYENMUCs, "MACM", "TENCM", lOAISP.MACM);
             return View(lOAISP);
         }
 
@@ -101,7 +101,7 @@ namespace TPCN.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LOAISP lOAISP = db.LOAISP.Find(id);
+            LOAISP lOAISP = db.LOAISPs.Find(id);
             if (lOAISP == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace TPCN.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            LOAISP lOAISP = db.LOAISP.Find(id);
-            db.LOAISP.Remove(lOAISP);
+            LOAISP lOAISP = db.LOAISPs.Find(id);
+            db.LOAISPs.Remove(lOAISP);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

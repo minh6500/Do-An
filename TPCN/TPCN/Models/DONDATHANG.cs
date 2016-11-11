@@ -17,12 +17,11 @@ namespace TPCN.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DONDATHANG()
         {
-            this.CTDDH = new HashSet<CTDDH>();
+            this.CTDDHs = new HashSet<CTDDH>();
         }
     
         public int MAD { get; set; }
         public System.DateTime NGAYDAT { get; set; }
-        public System.DateTime NGAYGIAO { get; set; }
         public string TENDAIDIEN { get; set; }
         public string SDT { get; set; }
         public string DIACHIGIAO { get; set; }
@@ -31,7 +30,7 @@ namespace TPCN.Models
         public Nullable<int> MAKH { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTDDH> CTDDH { get; set; }
+        public virtual ICollection<CTDDH> CTDDHs { get; set; }
         public virtual KHACHHANG KHACHHANG { get; set; }
     }
 }

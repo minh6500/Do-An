@@ -148,7 +148,6 @@ C:\Users\Son\Desktop\Do an1\Do-An\TPCN\TPCN\bin\System.Web.Webpages.Razor.xml
 C:\Users\Son\Desktop\Do an1\Do-An\TPCN\TPCN\bin\System.Web.Helpers.xml
 C:\Users\Son\Desktop\Do an1\Do-An\TPCN\TPCN\bin\System.Web.Mvc.xml
 C:\Users\Son\Desktop\Do an1\Do-An\TPCN\TPCN\obj\Debug\TPCN.csprojResolveAssemblyReference.cache
-C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\obj\Debug\TPCN.csprojResolveAssemblyReference.cache
 C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\obj\Debug\TPCN.dll
 C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\obj\Debug\TPCN.pdb
 C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\bin\ApplicationInsights.config
@@ -198,3 +197,8 @@ C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\bin\System.Web.Webpages.Deployment.xml
 C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\bin\System.Web.Webpages.Razor.xml
 C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\bin\System.Web.Helpers.xml
 C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\bin\System.Web.Mvc.xml
+C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\bin\PagedList.dll
+C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\bin\PagedList.Mvc.dll
+C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\bin\PagedList.xml
+C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\bin\PagedList.Mvc.xml
+C:\Users\ASUS\Desktop\web\Do-An\TPCN\TPCN\obj\Debug\TPCN.csprojResolveAssemblyReference.cache

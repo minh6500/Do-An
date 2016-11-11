@@ -31,6 +31,7 @@ namespace TPCN.Models
 
             [Display(Name = "Ngày Cập Nhật")]
             [Required(ErrorMessage = "Vui Lòng Không Được Để Trống!")]
+            [DataType(DataType.Date)]
             public System.DateTime NGAYCAPNHAT { get; set; }
 
             [Display(Name = "Đơn Giá")]
@@ -39,6 +40,12 @@ namespace TPCN.Models
 
             [Display(Name = "Khuyến Mãi")]
             public Nullable<int> KHUYENMAI { get; set; }
+
+            [Display(Name = "Thanh Toán Trực Tuyến")]
+            public string THANHTOANTRUCTUYEN { get; set; }
+
+            [Display(Name = "Đường dẫn thân thiện")]
+            public string URL { get; set; }
         }
     }
 }

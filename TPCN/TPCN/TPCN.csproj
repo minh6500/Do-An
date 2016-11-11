@@ -85,6 +85,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -226,6 +234,7 @@
     <Content Include="Areas\Admin\Content\vendor\morrisjs\morris.min.js" />
     <Content Include="Areas\Admin\Content\vendor\raphael\raphael.js" />
     <Content Include="Areas\Admin\Content\vendor\raphael\raphael.min.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="cssGioHang\main.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\flexslider.css" />
@@ -407,13 +416,16 @@
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\KHACHHANGController.cs" />
     <Compile Include="Areas\Admin\Controllers\LOAISPController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SANPHAMController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SANPHAMsController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ADMINLOGIN.cs">
+      <DependentUpon>TPCN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CHUYENMUC.cs">
       <DependentUpon>TPCN.tt</DependentUpon>
@@ -428,6 +440,9 @@
     <Compile Include="Models\KHACHHANG.cs">
       <DependentUpon>TPCN.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LIENHE.cs">
+      <DependentUpon>TPCN.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LOAISP.cs">
       <DependentUpon>TPCN.tt</DependentUpon>
     </Compile>
@@ -439,6 +454,7 @@
     <Compile Include="Models\SANPHAM.cs">
       <DependentUpon>TPCN.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SanPhamKhac.cs" />
     <Compile Include="Models\TPCN.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -470,14 +486,12 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SanPham\LoaiSP.cshtml" />
     <Content Include="Views\SanPham\CTLoai.cshtml" />
     <Content Include="Views\SanPham\CTSanPham.cshtml" />
     <Content Include="Views\NguoiDung\DangKy.cshtml" />
     <Content Include="Views\NguoiDung\DangNhap.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Areas\Admin\Content\bower.json" />
     <Content Include="Areas\Admin\Content\less\mixins.less" />
     <Content Include="Areas\Admin\Content\less\sb-admin-2.less" />
@@ -541,12 +555,14 @@
     <Content Include="Areas\Admin\Views\LOAISP\Details.cshtml" />
     <Content Include="Areas\Admin\Views\LOAISP\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\LOAISP\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\SANPHAM\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\SANPHAM\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\SANPHAM\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\SANPHAM\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\SANPHAM\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SANPHAMs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SANPHAMs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SANPHAMs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SANPHAMs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SANPHAMs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\SanPham\SanPhamKhac.cshtml" />
     <EntityDeploy Include="Models\TPCN.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TPCN.Designer.cs</LastGenOutput>
@@ -554,6 +570,7 @@
     <Content Include="Models\TPCN.edmx.diagram">
       <DependentUpon>TPCN.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\GioHang\GioHang.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

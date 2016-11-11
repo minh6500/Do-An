@@ -1,11 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TPCNModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADMINLOGIN">
+    <Key>
+      <PropertyRef Name="MAAD" />
+    </Key>
+    <Property Name="MAAD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="PASS" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="TENAD" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="CHUYENMUC">
     <Key>
       <PropertyRef Name="MACM" />
     </Key>
     <Property Name="MACM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENCM" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="URLCM" Type="text" />
   </EntityType>
   <EntityType Name="CTDDH">
     <Key>
@@ -23,10 +33,9 @@
     </Key>
     <Property Name="MAD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NGAYDAT" Type="date" Nullable="false" />
-    <Property Name="NGAYGIAO" Type="date" Nullable="false" />
     <Property Name="TENDAIDIEN" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="SDT" Type="char" MaxLength="11" Nullable="false" />
-    <Property Name="DIACHIGIAO" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DIACHIGIAO" Type="ntext" Nullable="false" />
     <Property Name="TINHTRANGTHANHTOAN" Type="bit" />
     <Property Name="TINHTRANGGIAOHANG" Type="bit" />
     <Property Name="MAKH" Type="int" />
@@ -38,10 +47,19 @@
     <Property Name="MAKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENKH" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="SDT" Type="char" MaxLength="11" Nullable="false" />
-    <Property Name="DIACHI" Type="nvarchar" MaxLength="200" Nullable="false" />
-    <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="USERNAME" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="PASS" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DIACHI" Type="ntext" Nullable="false" />
+    <Property Name="EMAIL" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="USERNAME" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="PASS" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LIENHE">
+    <Key>
+      <PropertyRef Name="MALH" />
+    </Key>
+    <Property Name="MALH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMAIL" Type="text" Nullable="false" />
+    <Property Name="CHUDE" Type="ntext" Nullable="false" />
+    <Property Name="NOIDUNG" Type="ntext" Nullable="false" />
   </EntityType>
   <EntityType Name="LOAISP">
     <Key>
@@ -49,6 +67,7 @@
     </Key>
     <Property Name="MALOAI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENLOAI" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="URLLOAISP" Type="text" />
     <Property Name="MACM" Type="int" />
   </EntityType>
   <EntityType Name="SANPHAM">
@@ -56,15 +75,18 @@
       <PropertyRef Name="MASP" />
     </Key>
     <Property Name="MASP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TENSP" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="MOTA" Type="nvarchar" MaxLength="1000" Nullable="false" />
-    <Property Name="HINHANH" Type="varchar" MaxLength="200" />
+    <Property Name="TENSP" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MOTA" Type="ntext" Nullable="false" />
+    <Property Name="HINHANH" Type="text" />
     <Property Name="NGAYCAPNHAT" Type="datetime" Nullable="false" />
     <Property Name="DONGIA" Type="int" Nullable="false" />
     <Property Name="KHUYENMAI" Type="int" />
+    <Property Name="THANHTOANTRUCTUYEN" Type="nvarchar(max)" />
+    <Property Name="URL" Type="text" />
+    <Property Name="NOIDUNG" Type="ntext" />
     <Property Name="MALOAI" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK__CTDDH__MAD__1DE57479">
+  <Association Name="FK__CTDDH__MAD__2C3393D0">
     <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="1" />
     <End Role="CTDDH" Type="Self.CTDDH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -76,7 +98,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CTDDH__MASP__1CF15040">
+  <Association Name="FK__CTDDH__MASP__2B3F6F97">
     <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
     <End Role="CTDDH" Type="Self.CTDDH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -88,7 +110,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DONDATHANG__MAKH__1A14E395">
+  <Association Name="FK__DONDATHANG__MAKH__286302EC">
     <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
     <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="*" />
     <ReferentialConstraint>
@@ -112,7 +134,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SANPHAM__MALOAI__15502E78">
+  <Association Name="FK__SANPHAM__MALOAI__239E4DCF">
     <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="1" />
     <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
     <ReferentialConstraint>
@@ -125,21 +147,23 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="TPCNModelStoreContainer">
+    <EntitySet Name="ADMINLOGIN" EntityType="Self.ADMINLOGIN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CHUYENMUC" EntityType="Self.CHUYENMUC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CTDDH" EntityType="Self.CTDDH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DONDATHANG" EntityType="Self.DONDATHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LIENHE" EntityType="Self.LIENHE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LOAISP" EntityType="Self.LOAISP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__CTDDH__MAD__1DE57479" Association="Self.FK__CTDDH__MAD__1DE57479">
+    <AssociationSet Name="FK__CTDDH__MAD__2C3393D0" Association="Self.FK__CTDDH__MAD__2C3393D0">
       <End Role="DONDATHANG" EntitySet="DONDATHANG" />
       <End Role="CTDDH" EntitySet="CTDDH" />
     </AssociationSet>
-    <AssociationSet Name="FK__CTDDH__MASP__1CF15040" Association="Self.FK__CTDDH__MASP__1CF15040">
+    <AssociationSet Name="FK__CTDDH__MASP__2B3F6F97" Association="Self.FK__CTDDH__MASP__2B3F6F97">
       <End Role="SANPHAM" EntitySet="SANPHAM" />
       <End Role="CTDDH" EntitySet="CTDDH" />
     </AssociationSet>
-    <AssociationSet Name="FK__DONDATHANG__MAKH__1A14E395" Association="Self.FK__DONDATHANG__MAKH__1A14E395">
+    <AssociationSet Name="FK__DONDATHANG__MAKH__286302EC" Association="Self.FK__DONDATHANG__MAKH__286302EC">
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
       <End Role="DONDATHANG" EntitySet="DONDATHANG" />
     </AssociationSet>
@@ -147,7 +171,7 @@
       <End Role="CHUYENMUC" EntitySet="CHUYENMUC" />
       <End Role="LOAISP" EntitySet="LOAISP" />
     </AssociationSet>
-    <AssociationSet Name="FK__SANPHAM__MALOAI__15502E78" Association="Self.FK__SANPHAM__MALOAI__15502E78">
+    <AssociationSet Name="FK__SANPHAM__MALOAI__239E4DCF" Association="Self.FK__SANPHAM__MALOAI__239E4DCF">
       <End Role="LOAISP" EntitySet="LOAISP" />
       <End Role="SANPHAM" EntitySet="SANPHAM" />
     </AssociationSet>

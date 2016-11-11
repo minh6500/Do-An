@@ -7,18 +7,22 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TPCN.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace TPCN.Areas.Admin.Controllers
 {
-    public class SANPHAMController : Controller
+    public class SANPHAMsController : Controller
     {
         private TPCNEntities db = new TPCNEntities();
 
         // GET: Admin/SANPHAM
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var sANPHAMs = db.SANPHAM.Include(s => s.LOAISP);
-            return View(sANPHAMs.ToList());
+            int pageNumber = (page ?? 1);
+            int pageSize = 5;
+            var sANPHAMs = db.SANPHAMs.Include(s => s.LOAISP);
+            return View(sANPHAMs.ToList().ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Admin/SANPHAM/Details/5
@@ -28,7 +32,7 @@ namespace TPCN.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SANPHAM sANPHAM = db.SANPHAM.Find(id);
+            SANPHAM sANPHAM = db.SANPHAMs.Find(id);
             if (sANPHAM == null)
             {
                 return HttpNotFound();
@@ -39,7 +43,7 @@ namespace TPCN.Areas.Admin.Controllers
         // GET: Admin/SANPHAM/Create
         public ActionResult Create()
         {
-            ViewBag.MALOAI = new SelectList(db.LOAISP, "MALOAI", "TENLOAI");
+            ViewBag.MALOAI = new SelectList(db.LOAISPs, "MALOAI", "TENLOAI");
             return View();
         }
 
@@ -48,16 +52,16 @@ namespace TPCN.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MASP,TENSP,MOTA,HINHANH,NGAYCAPNHAT,DONGIA,KHUYENMAI,MALOAI")] SANPHAM sANPHAM)
+        public ActionResult Create([Bind(Include = "MASP,TENSP,MOTA,HINHANH,NGAYCAPNHAT,DONGIA,KHUYENMAI,MALOAI,THANHTOANTRUCTUYEN,URL")] SANPHAM sANPHAM)
         {
             if (ModelState.IsValid)
             {
-                db.SANPHAM.Add(sANPHAM);
+                db.SANPHAMs.Add(sANPHAM);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MALOAI = new SelectList(db.LOAISP, "MALOAI", "TENLOAI", sANPHAM.MALOAI);
+            ViewBag.MALOAI = new SelectList(db.LOAISPs, "MALOAI", "TENLOAI", sANPHAM.MALOAI);
             return View(sANPHAM);
         }
 
@@ -68,12 +72,12 @@ namespace TPCN.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SANPHAM sANPHAM = db.SANPHAM.Find(id);
+            SANPHAM sANPHAM = db.SANPHAMs.Find(id);
             if (sANPHAM == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MALOAI = new SelectList(db.LOAISP, "MALOAI", "TENLOAI", sANPHAM.MALOAI);
+            ViewBag.MALOAI = new SelectList(db.LOAISPs, "MALOAI", "TENLOAI", sANPHAM.MALOAI);
             return View(sANPHAM);
         }
 
@@ -82,7 +86,7 @@ namespace TPCN.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MASP,TENSP,MOTA,HINHANH,NGAYCAPNHAT,DONGIA,KHUYENMAI,MALOAI")] SANPHAM sANPHAM)
+        public ActionResult Edit([Bind(Include = "MASP,TENSP,MOTA,HINHANH,NGAYCAPNHAT,DONGIA,KHUYENMAI,MALOAI,THANHTOANTRUCTUYEN,URL")] SANPHAM sANPHAM)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +94,7 @@ namespace TPCN.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MALOAI = new SelectList(db.LOAISP, "MALOAI", "TENLOAI", sANPHAM.MALOAI);
+            ViewBag.MALOAI = new SelectList(db.LOAISPs, "MALOAI", "TENLOAI", sANPHAM.MALOAI);
             return View(sANPHAM);
         }
 
@@ -101,7 +105,7 @@ namespace TPCN.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SANPHAM sANPHAM = db.SANPHAM.Find(id);
+            SANPHAM sANPHAM = db.SANPHAMs.Find(id);
             if (sANPHAM == null)
             {
                 return HttpNotFound();
@@ -114,8 +118,8 @@ namespace TPCN.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SANPHAM sANPHAM = db.SANPHAM.Find(id);
-            db.SANPHAM.Remove(sANPHAM);
+            SANPHAM sANPHAM = db.SANPHAMs.Find(id);
+            db.SANPHAMs.Remove(sANPHAM);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
