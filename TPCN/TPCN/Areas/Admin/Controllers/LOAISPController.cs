@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TPCN.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace TPCN.Areas.Admin.Controllers
 {
@@ -15,26 +17,15 @@ namespace TPCN.Areas.Admin.Controllers
         private TPCNEntities db = new TPCNEntities();
 
         // GET: Admin/LOAISP
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            int pageNumber = (page ?? 1);
+            int pageSize = 5;
             var lOAISPs = db.LOAISPs.Include(l => l.CHUYENMUC);
-            return View(lOAISPs.ToList());
+            return View(lOAISPs.ToList().ToPagedList(pageNumber,pageSize));
         }
 
-        // GET: Admin/LOAISP/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            LOAISP lOAISP = db.LOAISPs.Find(id);
-            if (lOAISP == null)
-            {
-                return HttpNotFound();
-            }
-            return View(lOAISP);
-        }
+
 
         // GET: Admin/LOAISP/Create
         public ActionResult Create()
@@ -48,7 +39,7 @@ namespace TPCN.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MALOAI,TENLOAI,MACM")] LOAISP lOAISP)
+        public ActionResult Create([Bind(Include = "MALOAI,TENLOAI,MACM,URLLOAISP")] LOAISP lOAISP)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +73,7 @@ namespace TPCN.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MALOAI,TENLOAI,MACM")] LOAISP lOAISP)
+        public ActionResult Edit([Bind(Include = "MALOAI,TENLOAI,MACM,URLLOAISP")] LOAISP lOAISP)
         {
             if (ModelState.IsValid)
             {
@@ -94,31 +85,6 @@ namespace TPCN.Areas.Admin.Controllers
             return View(lOAISP);
         }
 
-        // GET: Admin/LOAISP/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            LOAISP lOAISP = db.LOAISPs.Find(id);
-            if (lOAISP == null)
-            {
-                return HttpNotFound();
-            }
-            return View(lOAISP);
-        }
-
-        // POST: Admin/LOAISP/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            LOAISP lOAISP = db.LOAISPs.Find(id);
-            db.LOAISPs.Remove(lOAISP);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
 
         protected override void Dispose(bool disposing)
         {

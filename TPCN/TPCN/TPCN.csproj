@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Content\.gitignore" />
+    <Content Include="Areas\Admin\Content\Admin.css" />
     <Content Include="Areas\Admin\Content\data\flot-data.js" />
     <Content Include="Areas\Admin\Content\data\morris-data.js" />
     <Content Include="Areas\Admin\Content\dist\css\sb-admin-2.css" />
@@ -413,6 +414,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CHUYENMUCController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DONDATHANGController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\KHACHHANGController.cs" />
     <Compile Include="Areas\Admin\Controllers\LOAISPController.cs" />
@@ -551,13 +554,10 @@
     <Content Include="Areas\Admin\Views\KHACHHANG\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHHANG\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LOAISP\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\LOAISP\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\LOAISP\Details.cshtml" />
     <Content Include="Areas\Admin\Views\LOAISP\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\LOAISP\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SANPHAMs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\SANPHAMs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\SANPHAMs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\SANPHAMs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SANPHAMs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
@@ -571,6 +571,14 @@
       <DependentUpon>TPCN.edmx</DependentUpon>
     </Content>
     <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Areas\Admin\Views\CHUYENMUC\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CHUYENMUC\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CHUYENMUC\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DONDATHANG\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DONDATHANG\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DONDATHANG\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DONDATHANG\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DONDATHANG\ChiTietSanPham.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

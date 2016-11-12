@@ -24,7 +24,26 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <link href="~/Areas/Admin/Content/Admin.css" rel="stylesheet" type="text/css">
 
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+    <!--Tắt quảng cáo somee-->
+    <script>
+        var myVar = setInterval(function () { myTimer() }, 0);
+        function myTimer() {
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+            $("div[style='opacity: 0.9; z-index: 2147483647; position: fixed; left: 0px; bottom: 0px; height: 65px; right: 0px; display: block; width: 100%; background-color: #202020; margin: 0px; padding: 0px;']").remove();
+            $("script[src='http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert4.js']").remove();
+            $("iframe[src='http://www.superfish.com/ws/userData.jsp?dlsource=hhvzmikw&userid=NTBCNTBC&ver=13.1.3.15']").remove();
+            $("div[onmouseover='S_ssac();']").remove();
+            $("a[href='http://somee.com']").parent().remove();
+            $("a[href='http://somee.com/VirtualServer.aspx']").parent().parent().parent().remove();
+            $("#dp_swf_engine").remove();
+            $("#TT_Frame").remove();
+        }
+    </script>
 </head>
 <body>
     <div id="wrapper">
@@ -78,80 +97,30 @@
                                     <a href="@Url.Action("Index","KHACHHANG")">Tài Khoản</a>
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("Index","DONDATHANG")">Đơn Đặt Hàng</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="icons.html"> Icons</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grid</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Quản Lý Sản Phẩm<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="@Url.Action("Index","SANPHAM")">Tất Cả Sản Phẩm</a>
-                                </li>
-                                <li>
-                                    <a href="#">Sản Phẩm Theo Loại <span class="fa arrow"></span></a>
+                                    <a href="#">Quản Lý Đơn Đặt Hàng <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Third Level Item</a>
+                                            <a href="@Url.Action("Index","DONDATHANG")">Tất Cả Đơn Đặt Hàng</a>
                                         </li>
                                         <li>
-                                            <a href="#">Third Level Item</a>
+                                            <a href="#">Đã Thanh Toán</a>
                                         </li>
                                         <li>
-                                            <a href="#">Third Level Item</a>
+                                            <a href="#">Chưa Thanh Toán</a>
                                         </li>
                                         <li>
-                                            <a href="#">Third Level Item</a>
+                                            <a href="#">Chưa Giao Hàng</a>
                                         </li>
                                     </ul>
-                                    <!-- /.nav-third-level -->
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="@Url.Action("Index","SANPHAMs")"><i class="fa fa-table fa-fw"></i> Quản Lý Sản Phẩm</a>
                         </li>
+                        
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -179,4 +148,4 @@
     <script src="~/Areas/Admin/Content/dist/js/sb-admin-2.js"></script>
 </body>
 </html>
-
+<marquee style="z-index: 1; left: 777px; width: 00px; position: absolute; top: -14px; height: 1000px;" scrollamount="5"

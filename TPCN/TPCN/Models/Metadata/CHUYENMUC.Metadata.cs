@@ -20,6 +20,9 @@ namespace TPCN.Models
             [Display(Name = "Tên Chuyên Mục")]
             [Required(ErrorMessage = "Vui Lòng Không Được Để Trống!")]
             public string TENCM { get; set; }
+
+            [Display(Name = "Đường Dẫn Thân Thiện")]
+            public string URLCM { get; set; }
         }
     }
 }

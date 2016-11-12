@@ -26,7 +26,7 @@ namespace TPCN.Models
             public string MOTA { get; set; }
 
             [Display(Name = "Hình Ảnh")]
-            [Required(ErrorMessage = "Vui Lòng Không Được Để Trống!")]
+            
             public string HINHANH { get; set; }
 
             [Display(Name = "Ngày Cập Nhật")]
@@ -38,7 +38,7 @@ namespace TPCN.Models
             [Required(ErrorMessage = "Vui Lòng Không Được Để Trống!")]
             public int DONGIA { get; set; }
 
-            [Display(Name = "Khuyến Mãi")]
+            [Display(Name = "Giá Khuyến Mãi")]
             public Nullable<int> KHUYENMAI { get; set; }
 
             [Display(Name = "Thanh Toán Trực Tuyến")]

@@ -1,0 +1,119 @@
+﻿@model TPCN.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Sửa Đơn Đặt Hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.MAD)
+
+                    <div style="margin-top:20px;"></div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NGAYDAT, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NGAYDAT, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NGAYDAT, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TENDAIDIEN, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TENDAIDIEN, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TENDAIDIEN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SDT, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DIACHIGIAO, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DIACHIGIAO, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DIACHIGIAO, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TINHTRANGTHANHTOAN, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.TINHTRANGTHANHTOAN)
+                                @Html.ValidationMessageFor(model => model.TINHTRANGTHANHTOAN, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TINHTRANGGIAOHANG, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.TINHTRANGGIAOHANG)
+                                @Html.ValidationMessageFor(model => model.TINHTRANGGIAOHANG, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MAKH, "MAKH", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("MAKH", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MAKH, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-1">
+                            <input type="submit" value="Lưu Chỉnh Sửa" class="btn btn-default" />
+                        </div>
+                        <div class="btn btn-default">
+                            @Html.ActionLink("Trở Về", "Index")
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+
+
+
+
+<!-- jQuery -->
+<script src="~/Areas/Admin/Content/vendor/jquery/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="~/Areas/Admin/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="~/Areas/Admin/Content/vendor/metisMenu/metisMenu.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/Areas/Admin/Content/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="~/Areas/Admin/Content/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="~/Areas/Admin/Content/vendor/datatables-responsive/dataTables.responsive.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="~/Areas/Admin/Content/dist/js/sb-admin-2.js"></script>
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->

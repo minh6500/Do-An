@@ -1,0 +1,13 @@
+﻿.truncate {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.submit{
+    width:100px;
+    height:auto;
+    margin-right:100px;
+    margin-bottom:100px;
+    float:left;
+}

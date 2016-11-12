@@ -17,6 +17,9 @@ namespace TPCN.Models
             [Display(Name = "Loại Sản Phẩm")]
             [Required(ErrorMessage = "Vui lòng không được để trống!")]
             public string TENLOAI { get; set; }
+
+            [Display(Name = "Đường Dẫn Thân Thiện")]
+            public string URLLOAISP { get; set; }
         }
     }
 }

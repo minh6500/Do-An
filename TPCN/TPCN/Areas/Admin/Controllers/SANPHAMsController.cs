@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using TPCN.Models;
 using PagedList;
 using PagedList.Mvc;
+using System.IO;
 
 namespace TPCN.Areas.Admin.Controllers
 {
@@ -52,16 +53,28 @@ namespace TPCN.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MASP,TENSP,MOTA,HINHANH,NGAYCAPNHAT,DONGIA,KHUYENMAI,MALOAI,THANHTOANTRUCTUYEN,URL")] SANPHAM sANPHAM)
+        [ValidateInput(false)]
+        public ActionResult Create([Bind(Include = "MASP,TENSP,MOTA,HINHANH,NGAYCAPNHAT,DONGIA,KHUYENMAI,MALOAI,THANHTOANTRUCTUYEN,URL")] SANPHAM sANPHAM, HttpPostedFileBase fileUpload)
         {
+            ViewBag.MALOAI = new SelectList(db.LOAISPs, "MALOAI", "TENLOAI", sANPHAM.MALOAI);
+            if (fileUpload == null)
+            {
+                ViewBag.ThongBao = "Vui lòng nhập hình ảnh";
+                return View();
+            }
+            //Lưu Tên File
+            var fileName = Path.GetFileName(fileUpload.FileName);
+            //Lưu đường dẫn của file
+            var path = Path.Combine(Server.MapPath("~/HinhSP"), fileName);
+            //Kiểm tra hình ảnh
+            fileUpload.SaveAs(path);
+            sANPHAM.HINHANH = fileUpload.FileName;
             if (ModelState.IsValid)
             {
                 db.SANPHAMs.Add(sANPHAM);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.MALOAI = new SelectList(db.LOAISPs, "MALOAI", "TENLOAI", sANPHAM.MALOAI);
             return View(sANPHAM);
         }
 
@@ -86,15 +99,28 @@ namespace TPCN.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MASP,TENSP,MOTA,HINHANH,NGAYCAPNHAT,DONGIA,KHUYENMAI,MALOAI,THANHTOANTRUCTUYEN,URL")] SANPHAM sANPHAM)
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include = "MASP,TENSP,MOTA,HINHANH,NGAYCAPNHAT,DONGIA,KHUYENMAI,MALOAI,THANHTOANTRUCTUYEN,URL")] SANPHAM sANPHAM, HttpPostedFileBase fileUpload)
         {
+            ViewBag.MALOAI = new SelectList(db.LOAISPs, "MALOAI", "TENLOAI", sANPHAM.MALOAI);
+            if (fileUpload == null)
+            {
+                ViewBag.ThongBao = "Vui lòng nhập hình ảnh";
+                return View();
+            }
+            //Lưu Tên File
+            var fileName = Path.GetFileName(fileUpload.FileName);
+            //Lưu đường dẫn của file
+            var path = Path.Combine(Server.MapPath("~/HinhSP"), fileName);
+            //Kiểm tra hình ảnh
+            fileUpload.SaveAs(path);
+            sANPHAM.HINHANH = fileUpload.FileName;
             if (ModelState.IsValid)
             {
                 db.Entry(sANPHAM).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MALOAI = new SelectList(db.LOAISPs, "MALOAI", "TENLOAI", sANPHAM.MALOAI);
             return View(sANPHAM);
         }
 

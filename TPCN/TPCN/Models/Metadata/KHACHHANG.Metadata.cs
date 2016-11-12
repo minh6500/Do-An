@@ -14,7 +14,7 @@ namespace TPCN.Models
         //chỉ sử dụng cho 1 class này không cho kế thừa
         internal sealed class KHACHHANGMetadata
         {
-            [Display(Name = "Họ Tên")]                                             //Dặt lại tên cho cột
+            [Display(Name = "Khách Hàng")]                                             //Dặt lại tên cho cột
             [MinLength(5, ErrorMessage = "Tên ít nhất phải 5 ký tự trở lên")]        //kiểm tra độ dài 
             [Required(ErrorMessage = "Vui lòng nhập dữ liệu cho trường này")]  //kiểm tra rỗng
             public string TENKH { get; set; }

@@ -1,17 +1,8 @@
 ﻿@using PagedList;
 @using PagedList.Mvc;
 @model PagedList.PagedList<TPCN.Models.SANPHAM>
-@helper RutGon(string input, int length)
-{
-if (input.Length < length)
-{
-        @input
-}
-else
-{
-        @input.Substring(0, length)<text>...</text>
-}
-}
+
+
 @{
     ViewBag.Title = "Tất Cả Sản Phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -55,10 +46,10 @@ else
                                         <img src="~/HinhSP/@Html.DisplayFor(modelItem => item.HINHANH)" class="img-responsive" width="100" height="100" title="@item.TENSP"/>
                                     </td>
                                     <td>
-                                        @RutGon(item.TENSP,50)
+                                        <div class="truncate">@Html.DisplayFor(modelItem => item.TENSP)</div>
                                     </td>
                                     <td>
-                                        @Html.Raw(RutGon(item.MOTA, 20))
+                                        <div class="truncate">@Html.Raw(item.MOTA)</div>
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.DONGIA)
@@ -73,14 +64,13 @@ else
                                         @Html.DisplayFor(modelItem => item.NGAYCAPNHAT)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.THANHTOANTRUCTUYEN)
+                                        <div class="truncate">@Html.DisplayFor(modelItem => item.THANHTOANTRUCTUYEN)</div>
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.URL)
                                     </td>
                                     <td>
                                         @Html.ActionLink("Sửa", "Edit", new { id = item.MASP }) |
-                                        @Html.ActionLink("Hiển Thị", "Details", new { id = item.MASP }) |
                                         @Html.ActionLink("Xóa", "Delete", new { id = item.MASP })
                                     </td>
                                 </tr>
@@ -96,7 +86,6 @@ else
     </div>
 <!--Tạo link liên kết các trang-->
 <div style="text-align:center;">
-    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
     <div class="MenuTrang">
         @Html.PagedListPager(Model, page => Url.Action("Index", "SANPHAMs", new { page = page }))
     </div>
@@ -116,10 +105,3 @@ else
 <!-- Custom Theme JavaScript -->
 <script src="~/Areas/Admin/Content/dist/js/sb-admin-2.js"></script>
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-<script>
-    $(document).ready(function () {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
-    });
-</script>

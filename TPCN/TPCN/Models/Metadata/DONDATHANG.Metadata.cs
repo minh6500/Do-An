@@ -29,13 +29,13 @@ namespace TPCN.Models
             [Required(ErrorMessage = "Vui lòng nhập dữ liệu cho trường này ")]
             public string SDT { get; set; }
 
-            [Display(Name = "Tình Trạng Thanh Toán")]
-            [Required(ErrorMessage = "Vui lòng nhập dữ liệu cho trường này ")]
+            [Display(Name = "Tình Trạng Thanh Toán")]            
             public string TINHTRANGTHANHTOAN { get; set; }
 
             [Display(Name = "Tình Trạng Giao Hàng")]
-            [Required(ErrorMessage = "Vui lòng nhập dữ liệu cho trường này ")]
             public string TINHTRANGGIAOHANG { get; set; }
+
+
         }
     }
 }
